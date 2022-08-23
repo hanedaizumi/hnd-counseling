@@ -1,5 +1,25 @@
 @charset "utf-8";
-
+// ------------------------------------------------
+// 変数
+// ------------------------------------------------ 
+$tablet_size: 820px;
+// ------------------------------------------------
+// @mixin
+// ------------------------------------------------
+@mixin note_logo($width) {
+    img {
+        width: $width;
+        padding: 0 25px;
+        background-color: #fff;
+        border: 2px solid #ccc;
+        border-radius: 10px;
+        box-shadow: 1px 1px 3px -1px rgba(0,0,0,0.6);
+        transition: all 0.25s;
+    }
+    img:hover {
+        box-shadow: none;
+    }
+}
 // ------------------------------------------------
 // base style
 // ------------------------------------------------
@@ -18,10 +38,10 @@ html, body {
     background-color: #fff;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: start;
     align-items: center;
     .header-title {
-        margin: 0 0 0 100px;
+        margin: 0 0 0 30px;
         a {
             text-decoration: none;
             img {
@@ -30,10 +50,14 @@ html, body {
         }
     }
     .header-nav {
+        display: flex;
+        flex-direction: row;
+        justify-content: start;
+        align-items: center;
         .header-menu {
-            margin: 0 100px 0 0;
             display: flex;
             flex-direction: row;
+            justify-content: start;
             align-items: center;
             .header-menu-item {
                 a {
@@ -42,12 +66,18 @@ html, body {
                     font-family: 'Cormorant';
                     font-size: 1.4rem;
                     transition: all 0.25s;
-                    margin: 0 40px;
+                    margin: 0 30px;
                 }
                 a:hover {
                     color: #ccc;
                 }
             }
+        }
+        .header-sns {
+            margin: 0 0 0 20px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
             .header-sns-item {
                 a {
                     text-decoration: none;
@@ -55,6 +85,7 @@ html, body {
                     font-size: 2.1rem;
                     transition: all 0.25s;
                     margin: 0 20px;
+                    @include note_logo(130px);
                 }
                 a:hover {
                     color: #ccc;
@@ -63,11 +94,11 @@ html, body {
         }
     }
 }
-@media screen and (max-width: 767px) {
+@media screen and (max-width: $tablet_size) {
     #header {
         display: block;
         width: 100%;
-        height: 280px;
+        height: 325px;
         text-align: center;
         .header-title {
             margin: 0;
@@ -79,23 +110,30 @@ html, body {
             }
         }
         .header-nav {
+            display: block;
             .header-menu {
-                margin: 30px 0;
+                margin: 20px 0 0 0;
                 flex-wrap: wrap;
                 justify-content: center;
-                .header-spacer {
-                    width: 100%;
-                }
                 .header-menu-item {
                     a {
                         font-size: 1.25rem;
+                        margin: 0 10px;
                     }
                 }
+            }
+            .header-sns {
+                justify-content: center;
+                flex-wrap: wrap;
                 .header-sns-item {
-                    padding-top: 20px;
+                    padding-top: 15px;
                     a {
                         font-size: 2rem;
+                        @include note_logo(110px)
                     }
+                }
+                .header-spacer {
+                    width: 100%;
                 }
             }
         }
@@ -149,7 +187,7 @@ html, body {
         z-index: 1;
     }
 }
-@media screen and (max-width: 767px) {
+@media screen and (max-width: $tablet_size) {
     #home-img {
         height: 30vh;
         .home-content {
@@ -201,7 +239,7 @@ html, body {
         flex-direction: row-reverse;
     }
 }
-@media screen and (max-width: 767px) {
+@media screen and (max-width: $tablet_size) {
     #introduce {
         .intro {
             display: block;
@@ -271,7 +309,7 @@ html, body {
         }
     }
 }
-@media screen and (max-width: 767px) {
+@media screen and (max-width: $tablet_size) {
     #content {
         .content-area {
             padding: 50px 0;
@@ -360,10 +398,12 @@ html, body {
                 dt {
                     font-size: 1.5rem;
                     font-family: 'Zen Kaku Gothic New';
-                    padding-top: 15px;
+                    padding: 15px 0 0 0;
                 }
                 dd {
                     font-family: 'Zen Kaku Gothic New';
+                    margin: 0 0 0 60px;
+                    @include note_logo(200px);
                 }
             }
             .about-sns-sp {
@@ -372,7 +412,7 @@ html, body {
         }
     }
 }
-@media screen and (max-width: 767px) {
+@media screen and (max-width: $tablet_size) {
     #about {
         .about-area {
             width: 80%;
@@ -403,6 +443,10 @@ html, body {
                     dd {
                         margin-left: 0px;
                         text-align: center;
+                        @include note_logo(130px);
+                    }
+                    dd:last-child {
+                        margin-top: 10px;
                     }
                 }
                 .about-sns-sp {
