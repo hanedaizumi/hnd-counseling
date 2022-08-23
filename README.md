@@ -2,4 +2,4 @@
 This is hnd-counseling's website source.
 
 # Web Site URL
-https://taniyuuhei.github.io/hnd-counseling/
+https://hanedaizumi.github.io/hnd-counseling/
